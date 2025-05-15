@@ -30,4 +30,4 @@ dev/
 figs/
 pod_restart.bash
 MMPB_utils_jake/
-utils/
+utils/.DS_Store
