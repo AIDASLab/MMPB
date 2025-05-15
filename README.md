@@ -1,13 +1,13 @@
 # MMPB: Multi-Modal Personalization Benchmark
 
-[[**🤗 Dataset**](https://https://huggingface.co/datasets/stackadd/MMPB)]
+[[**🤗 Dataset**](https://huggingface.co/datasets/stackadd/MMPB)]
 
 This repo contains the official evaluation code and dataset for the paper "MMPB: It's Time for a Multi-Modal Personalization"
 
 
 ## 📜 News
 
-**[2024.5.14]** 🚀 We released the [Dataset](https://https://huggingface.co/datasets/stackadd/MMPB).
+**[2024.5.14]** 🚀 We released the [Dataset](https://huggingface.co/datasets/stackadd/MMPB).
 
 ## 👨‍💻 Todo
 
