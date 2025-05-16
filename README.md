@@ -16,7 +16,9 @@ This repo contains the official evaluation code and dataset for the paper "MMPB:
 
 ## 👀 Introduction
 
-TBD
+You can run the [VLMs](https://huggingface.co/spaces/opencompass/open_vlm_leaderboard) using the scripts in `VLMEvalKit/MMPB_script/`  
+
+Command-line arguments are documented in  `VLMEvalKit/run.py`  
 
 ## 📃 License
 
