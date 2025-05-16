@@ -2,7 +2,7 @@
 
 [[**🤗 Dataset**](https://huggingface.co/datasets/stackadd/MMPB)]
 
-This repo contains the official evaluation code and dataset for the paper "MMPB: It's Time for a Multi-Modal Personalization"
+This repo contains the official evaluation code and dataset for the paper "MMPB: It's Time for Multi-Modal Personalization"
 
 
 ## 📜 News
