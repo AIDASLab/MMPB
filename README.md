@@ -18,7 +18,7 @@ This repo contains the official evaluation code and dataset for the paper "MMPB:
 
 TBD
 
-## 📜 License
+## 📃 License
 
 MMPB is licensed under CC BY-NC-SA 4.0.
 
