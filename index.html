@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta: paper description and keywords -->
+  <meta name="description"
+        content="This is a description of the research paper.">
+  <meta name="keywords" content="Keyword1, Keyword2, Keyword3">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Paper title -->
+  <title>Title</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.ico">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+  <!-- Gradio -->
+  <script
+	  type="module"
+	  src="https://gradio.s3-us-west-2.amazonaws.com/5.42.0/gradio.js"
+  ></script>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://aidas.snu.ac.kr">
+        <span class="icon">
+            <i class="fas fa-home"></i>
+        </span>
+        <div style="padding-left:5px;">AIDAS Lab</div>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <!-- Paper Title -->
+          <h1 class="title is-1 publication-title">Paper Title</h1>
+
+          <!-- Conference Name and Year -->
+          <h1 class="title is-4 publication-title" style="color: #FF0066;">
+            Conference Name, Year
+          </h1>
+
+          <!-- Authors and Affiliations -->
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://...">Author1</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://...">Author2</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://...">Author3</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="http://...">Author4</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://...">Author5</a><sup>1,2</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Seoul National University,</span>
+            <span class="author-block"><sup>2</sup>Microsoft Research</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- Paper Link. -->
+              <span class="link-block">
+                <a href="https://... (학회 논문 링크)"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- Arxiv Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/... (arxiv 논문 링크)"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Model Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/models/... (모델 링크)"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-share-square"></i>
+                  </span>
+                  <span>Model</span>
+                  </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/... (코드 링크)"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Demo Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/spaces/... (데모 링크)"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Demo</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/... (데이터셋 링크)"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-database"></i>
+                  </span>
+                  <span>Dataset</span>
+                  </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Teaser -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <!-- main image -->
+      <figure class="image">
+        <img src="./static/images/snu-night.jpg"
+             alt="subtitle of the main image">
+      </figure>
+      <h2 class="subtitle has-text-centered" style="margin-top: 20px;">
+        Subtitle of the Main Image
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<!-- Paper abstract -->
+<section class="hero is-light ">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="column has-text-justified" style="padding: 0;">
+            <p>
+              This is a brief description of the research paper. It summarizes the main contributions and findings of the work.
+              It highlights the key innovations and results that make this research significant.
+            </p>
+            <p>
+              The abstract is designed to give readers a quick overview of the research, allowing them to understand the main points without reading the entire paper.
+              It is often the first section that readers will see, so it should be concise and informative.
+            </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Demo -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Demo</h2>
+        <p>
+          This section provides an interactive demo of the research. You can try out the model and see how it works in real-time.
+          The demo allows you to input data and observe the model's predictions or outputs.
+        </p>
+        <!-- HF Space Link -->
+        <gradio-app src="https://ever2after-test.hf.space"></gradio-app>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Method -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Method</h2>
+        <div class="content has-text-justified">
+          <p>
+            This section provides a detailed explanation of the methodology used in the research.
+            It describes the techniques, algorithms, and approaches that were employed to achieve the results.
+          </p>
+          <p>
+            The method section is crucial for understanding how the research was conducted and how the findings were obtained.
+          </p>
+        </div>
+        <!-- Diagram or Illustration of Method -->
+        <figure class="image">
+          <img src="./static/images/snu-night.jpg" style="max-width:70%;margin-right:auto;margin: 50px auto 0 auto;"
+               alt="Diagram illustrating the method used in the research">
+        </figure>
+        <h3 class="has-text-centered" style="margin-top: 20px;">Caption of the Method Diagram</h3>
+      </div>
+</section>
+
+<!-- Results -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Results</h2>
+        <div class="content has-text-justified">
+          <p>
+            This section provides a detailed explanation of the results obtained from the research.
+            It describes the key findings, insights, and contributions of the work.
+          </p>
+          <p>
+            The results section is essential for understanding the impact of the research and how it advances the field.
+            It often includes data, figures, and tables to illustrate the findings.
+          </p>
+          <!-- table example -->
+          <table class="table is-striped is-hoverable is-fullwidth has-text-centered">
+            <thead>
+              <tr>
+              <th rowspan="2">Baseline</th>
+              <th colspan="2">Classification</th>
+              <th colspan="2">Detection</th>
+              <th rowspan="2">Latency (ms/img)</th>
+              </tr>
+              <tr>
+              <th>Accuracy (%)</th>
+              <th>F1</th>
+              <th>mAP@50</th>
+              <th>mAP@50:95</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+              <th>ResNet50</th>
+              <td>92.1</td>
+              <td>0.89</td>
+              <td>54.3</td>
+              <td>34.2</td>
+              <td>12.4</td>
+              </tr>
+              <tr>
+              <th>ViT-B</th>
+              <td>94.7</td>
+              <td>0.92</td>
+              <td>58.9</td>
+              <td>38.1</td>
+              <td>18.7</td>
+              </tr>
+              <tr class="has-background-light">
+              <th>Ours</th>
+              <td><strong>96.3</strong></td>
+              <td><strong>0.94</strong></td>
+              <td><strong>63.5</strong></td>
+              <td><strong>42.7</strong></td>
+              <td>15.2</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+              <td colspan="6" class="has-text-grey is-size-6">
+                Higher is better for Accuracy / F1 / mAP. Lower is better for latency.
+              </td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+</section>
+
+<!-- BibTeX -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@misc{example2025,
+  author    = {Author1, Author2 and Author3, Author4 and Author5},
+  title     = {Paper Title},
+  journal   = {Journal Name},
+  year      = {2025},
+}</code></pre>
+  </div>
+</section>
+
+<!-- Footer (Don't change) -->
+<footer class="footer" style="padding-bottom: 40px;">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is adapted from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>, licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <a href="https://en.snu.ac.kr">
+            <img src="./static/images/snu_logo.png" alt="Logo" style="max-height: 48px; margin: 6px 10px;">
+          </a>
+          <a href="https://aidas.snu.ac.kr">
+            <img src="./static/images/aidaslab_logo.png" alt="Logo" style="max-height: 36px; margin: 10px 30px;">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
