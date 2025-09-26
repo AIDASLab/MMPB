@@ -1,38 +1,308 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <!-- Meta: paper description and keywords -->
-  <meta name="description"
-        content="This is a description of the research paper.">
-  <meta name="keywords" content="Keyword1, Keyword2, Keyword3">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Paper title -->
-  <title>Title</title>
+  <meta charset="utf-8" />
+  <meta name="description" content="MMPB: It's Time for Multi-Modal Personalization." />
+  <meta name="keywords" content="Vision-Language Model, VLM, Personalization, MMPB" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MMPB: It's Time for Multi-Modal Personalization.</title>
+  <!-- Fonts & CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Noto+Sans:wght@300;400;600;700&family=Castoro:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./static/css/bulma.min.css" />
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css" />
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css" />
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" />
+  <link rel="stylesheet" href="./static/css/index.css" />
+  <link rel="icon" href="./static/images/favicon.ico" />
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
+  <!-- Minimal page-level enhancements -->
+  <style>
+    :root {
+      --brand: #0b5fff; /* SNU navy-ish */
+      --pink: #ff0066;
+      --glass-bg: rgba(255, 255, 255, 0.6);
+      --glass-bd: rgba(255, 255, 255, 0.8);
+      --card-shadow: 0 10px 30px rgba(0,0,0,.07);
+      --tbl-head-bg: #f6f8ff;
+      --tbl-cell-bg: #ffffff;
+      --tbl-sticky-shadow: inset 1px 0 0 #e9ecff;
+    }
+    html { scroll-behavior: smooth; }
+    .takeaway-grid { display: block; }
+    .takeaway { 
+      border-radius: 14px; 
+      padding: 18px 20px; 
+      background: #0b5fff0d; 
+      border: 1px dashed #0b5fff33; 
+      margin-bottom: 16px; 
+      width: 100%;
+    }
+    .takeaway strong { color: var(--brand); }
+    .takeaway-visual {
+      margin: 14px auto 0;
+      border-radius: 12px;
+      border: 1px solid rgba(11, 95, 255, .22);
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 12px 28px -20px rgba(11, 23, 89, .55);
+      width: 100%;
+      max-width: 800px;
+    }
+    .takeaway-visual.is-compact { max-width: 500px; }
+    .takeaway-visual img { display: block; width: 100%; height: auto; }
+    body { font-family: "Noto Sans", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+    .navbar .navbar-item .icon { color: var(--brand); }
+    .publication-title { letter-spacing: .2px; }
+    .conf-badge { color: #fff; background: var(--pink); border-radius: 999px; padding: 6px 14px; display: inline-block; font-weight: 700; }
+    .hero.is-info-gradient { background: linear-gradient(180deg, #f9fbff 0%, #ffffff 100%); }
+    .glass-card { background: var(--glass-bg); backdrop-filter: blur(10px); border: 1px solid var(--glass-bd); border-radius: 16px; box-shadow: var(--card-shadow); }
+    .kicker { text-transform: uppercase; letter-spacing: .12em; font-size: 1.0rem; color: #12214c; }
+    .metric-badges { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+    .badge { border-radius: 999px; padding: 6px 12px; border: 1px solid #e7e7e7; font-size: .9rem; }
+    .pill { display: inline-flex; align-items: center; gap: 8px; border-radius: 999px; padding: 6px 12px; background: #f2f4ff; color: #2b2f8a; border: 1px solid #dfe3ff; font-weight: 600; }
+    .icon-pill { width: 22px; height: 22px; display:inline-grid; place-items:center; border-radius: 50%; background:#e9edff; }
+    .news-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+    }
+    .news-list li {
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: rgba(11, 95, 255, .08);
+      width: auto;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .news-list li.is-hot {
+      color: #d43400;
+      font-weight: 700;
+      background: rgba(255, 105, 0, .14);
+    }
+    .btn-xxs { font-size: 11px; line-height: 1; padding: 2px 6px; }
+    .button .hf-icon { font-size: 16px; margin-right: 6px; }
+    .author-block .arrow { color: navy; font-weight: 900; padding-right: 6px; }
 
-  <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/favicon.ico">
+    /* Collapsible */
+    details.summary-card { border: 1px solid #e5e7eb; border-radius: 12px; padding: 10px 14px; background: #fafafa; }
+    details.summary-card > summary { cursor: pointer; list-style: none; font-weight: 700; }
+    details.summary-card[open] { background: #fff; }
 
+    /* Table tweaks */
+    .table-card {
+      background: #fff;
+      border: 1px solid rgba(11, 95, 255, .18);
+      border-radius: 18px;
+      box-shadow: 0 18px 46px -24px rgba(15, 40, 105, .45);
+      overflow: hidden;
+    }
+    .table-wrap {
+      max-height: 600px;
+      overflow: auto;
+    }
+    .data-table {
+      width: 100%;
+      font-size: .95rem;
+      font-variant-numeric: tabular-nums;
+      border-collapse: separate;
+      border-spacing: 0;
+      background: transparent;
+    }
+    .data-table th,
+    .data-table td {
+      vertical-align: middle;
+      padding: 11px 14px;
+      border-bottom: 1px solid #e1e6ff;
+    }
+    .data-table thead th {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      background: linear-gradient(180deg, #f3f6ff 0%, #e9edff 100%);
+      color: #152961;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      border-bottom-color: #d8dffd;
+      box-shadow: none;
+    }
+    .data-table thead tr:last-child th {
+      font-size: .85rem;
+      letter-spacing: normal;
+      text-transform: none;
+      position: relative;
+      text-align: right;
+      padding-right: 32px;
+      white-space: nowrap;
+    }
+    .data-table tbody tr:last-child td { border-bottom: none; }
+    .data-table tbody td {
+      background: #fff;
+      transition: background .2s ease, color .2s ease;
+    }
+    .data-table tbody tr:nth-child(odd) td { background: #f8faff; }
+    .data-table thead th:first-child {
+      position: sticky;
+      left: 0;
+      z-index: 4;
+      text-align: left;
+      font-weight: 700;
+      color: #152961;
+      background: linear-gradient(180deg, #f3f6ff 0%, #e9edff 100%);
+      box-shadow: var(--tbl-sticky-shadow);
+    }
+    .data-table tbody td:first-child {
+      position: sticky;
+      left: 0;
+      z-index: 3;
+      text-align: left;
+      font-weight: 600;
+      color: #162c66;
+      background: linear-gradient(180deg, rgba(255, 255, 255, .96) 0%, rgba(242, 246, 255, .96) 100%);
+      box-shadow: var(--tbl-sticky-shadow);
+    }
+    .data-table td:not(:first-child) { text-align: right; }
+    .data-table th.group-label { text-align: center; }
+    .data-table .group-header th {
+      background: linear-gradient(180deg, #eef2ff 0%, #e3e8ff 100%) !important;
+      border-bottom-color: #cfd6fa;
+      text-align: center;
+    }
+    .data-table tbody tr:hover td {
+      background: #eef3ff;
+      color: #0f2f78;
+    }
+    .data-table .model-header {
+      white-space: nowrap;
+      text-align: left !important;
+      font-size: .85rem;
+      letter-spacing: normal;
+      text-transform: none;
+    }
+    .data-table .button.is-xxs {
+      font-size: 10px;
+      padding: 2px 6px;
+      height: auto;
+    }
+    .data-table .sort-btn.button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid transparent;
+      background: rgba(11, 95, 255, .1);
+      color: var(--brand);
+      box-shadow: none;
+      padding: 0 6px;
+      height: 22px;
+      min-width: 22px;
+      font-size: .7rem;
+      line-height: 1;
+    }
+    .data-table thead tr:last-child th .sort-btn.button {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .data-table .sort-btn.button[data-sort-active="true"] {
+      background: var(--brand);
+      color: #fff;
+    }
+
+    /* What's New */
+    .whats-new { background: transparent; padding: 3.5rem 1.5rem; }
+    .whats-new-card {
+      border: none;
+      border-radius: 16px;
+      padding: 18px 20px;
+      background: #fff;
+      box-shadow: 0 18px 38px -26px rgba(11, 95, 255, .4);
+      display: block;
+      width: min(100%, 540px);
+      margin: 0 auto;
+      text-align: center;
+    }
+    .whats-new-card .title { margin-bottom: 16px; }
+    .whats-new-card .content { margin-bottom: 0; }
+
+    /* Sticky utilities */
+    .floating-cta { position: fixed; right: 18px; bottom: 18px; z-index: 20; }
+
+    /* Dark mode */
+    .dark body, .dark .hero, .dark .section, .dark .footer { background: #0b0f19; color: #e6e7ee; }
+    .dark .glass-card {
+      background: rgba(18, 22, 34, .6);
+      border-color: rgba(99, 102, 241, .35);
+      box-shadow: 0 20px 40px -28px rgba(0, 0, 0, .75);
+    }
+    .dark .summary-card { background: #0f1424; border-color: #1f2a44; }
+    .dark .badge { border-color: #223; }
+    .dark .publication-links .button.is-dark { background: #101827; }
+    .dark .author-block .arrow { color: #9db2ff; }
+    .dark .takeaway-visual { border-color: rgba(104, 128, 255, .45); background: rgba(12, 18, 38, .9); }
+    .dark .table-card {
+      background: rgba(14, 20, 38, .7);
+      border-color: rgba(99, 102, 241, .32);
+      box-shadow: 0 20px 40px -26px rgba(0, 0, 0, .75);
+    }
+    .dark .data-table thead th {
+      background: linear-gradient(180deg, #141c33 0%, #10172b 100%);
+      color: #d5ddff;
+      border-bottom-color: rgba(99, 102, 241, .4);
+    }
+    .dark .data-table thead th:first-child {
+      background: linear-gradient(180deg, #141c33 0%, #10172b 100%);
+      color: #d5ddff;
+    }
+    .dark .data-table .group-header th {
+      background: linear-gradient(180deg, #171f3a 0%, #131a32 100%) !important;
+      border-bottom-color: rgba(99, 102, 241, .38);
+    }
+    .dark .data-table thead th:first-child {
+      background: linear-gradient(180deg, #141c33 0%, #10172b 100%);
+      color: #d5ddff;
+      box-shadow: inset 1px 0 0 rgba(37, 53, 112, .55);
+    }
+    .dark .data-table tbody td:first-child {
+      background: linear-gradient(180deg, rgba(18, 24, 44, .95) 0%, rgba(13, 18, 34, .9) 100%);
+      color: #c3d3ff;
+      box-shadow: inset 1px 0 0 rgba(37, 53, 112, .55);
+    }
+    .dark .data-table tbody td {
+      background: transparent;
+      border-bottom-color: rgba(67, 81, 130, .45);
+      color: #d7dbff;
+    }
+    .dark .data-table tbody tr:nth-child(odd) td { background: rgba(20, 28, 52, .55); }
+    .dark .data-table tbody tr:hover td { background: rgba(66, 89, 158, .45); color: #fff; }
+    .dark .data-table .sort-btn.button { background: rgba(99, 102, 241, .18); color: #d5ddff; }
+    .dark .data-table .sort-btn.button[data-sort-active="true"] { background: #536aff; color: #fff; }
+    .dark .whats-new { background: transparent; }
+    .dark .whats-new-card {
+      background: rgba(15, 22, 40, .9);
+      border-color: rgba(5, 8, 25, 0.7);
+      box-shadow: 0 16px 36px -28px rgba(0, 0, 0, .75);
+    }
+    .dark .news-list li { background: rgba(59, 80, 147, .35); }
+    .dark .news-list li.is-hot {
+      background: rgba(255, 120, 66, .22);
+      color: #ffbc8d;
+    }
+  </style>
+
+  <!-- JS libs -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
-
-  <!-- Gradio -->
-  <script
-	  type="module"
-	  src="https://gradio.s3-us-west-2.amazonaws.com/5.42.0/gradio.js"
-  ></script>
+  <script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/5.42.0/gradio.js"></script>
 </head>
 <body>
 
@@ -47,309 +317,356 @@
   </div>
   <div class="navbar-menu">
     <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="https://aidas.snu.ac.kr">
-        <span class="icon">
-            <i class="fas fa-home"></i>
-        </span>
+      <a class="navbar-item" href="#top">
+        <span class="icon"><a class="navbar-item" href="https://aidas.snu.ac.kr/" target="_blank" rel="noopener noreferrer">
         <div style="padding-left:5px;">AIDAS Lab</div>
       </a>
+      <a class="navbar-item" href="#takeaways">Takeaways</a>
+      <a class="navbar-item" href="#results">Results</a>
+    </div>
+    <div class="navbar-end" style="padding-right:10px;">
+      <button id="darkToggle" class="button is-small is-light"><i class="far fa-moon"></i>&nbsp;Dark</button>
     </div>
   </div>
 </nav>
 
-<section class="hero">
+<!-- Hero -->
+<section class="hero is-info-gradient" id="top">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <!-- Paper Title -->
-          <h1 class="title is-1 publication-title">Paper Title</h1>
-
-          <!-- Conference Name and Year -->
-          <h1 class="title is-4 publication-title" style="color: #FF0066;">
-            Conference Name, Year
-          </h1>
-
-          <!-- Authors and Affiliations -->
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              <a href="https://...">Author1</a><sup>1</sup>,</span>
-            <span class="author-block">
-              <a href="https://...">Author2</a><sup>1</sup>,</span>
-            <span class="author-block">
-              <a href="https://...">Author3</a><sup>2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="http://...">Author4</a><sup>2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://...">Author5</a><sup>1,2</sup>
-            </span>
+          <h1 class="title is-1 publication-title">MMPB: It's Time for Multi-Modal Personalization</h1>
+          <div style="margin-top:6px;">
+            <span class="conf-badge">NeurIPS 2025</span>
           </div>
 
-          <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>Seoul National University,</span>
-            <span class="author-block"><sup>2</sup>Microsoft Research</span>
+          <div class="is-size-5 publication-authors" style="margin-top:18px;">
+            <span class="author-block"><a href="https://kim-jake.github.io/">Jaeik Kim</a><sup>1</sup>, </span>
+            <span class="author-block"><a href="https://github.com/Darklightened">Woojin Kim</a><sup>2</sup>, </span>
+            <span class="author-block"><a href="https://github.com/Woohye0n">Woohyeon Park</a><sup>2</sup>, </span>
+            <span class="author-block"><a href="https://sites.google.com/view/jydo/home/">Jaeyoung Do</a><sup>1,2</sup></span>
           </div>
 
-          <div class="column has-text-centered">
+          <div class="is-size-6 publication-authors">
+            <span class="author-block"><span class="arrow">▶</span> Seoul National University</span>,
+            <span class="author-block"><sup>1</sup>IPAI</span>
+            <span class="author-block"><sup>2</sup>ECE</span>
+          </div>
+
+          <div class="column has-text-centered" style="margin-top:14px;">
             <div class="publication-links">
-              <!-- Paper Link. -->
               <span class="link-block">
-                <a href="https://... (학회 논문 링크)"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper</span>
-                </a>
-              </span>
-              <!-- Arxiv Link. -->
-              <span class="link-block">
-                <a href="https://arxiv.org/abs/... (arxiv 논문 링크)"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                  </span>
+                <a href="https://arxiv.org/abs/" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="ai ai-arxiv"></i></span>
                   <span>arXiv</span>
                 </a>
               </span>
-              <!-- Model Link. -->
               <span class="link-block">
-                <a href="https://huggingface.co/models/... (모델 링크)"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="far fa-share-square"></i>
-                  </span>
-                  <span>Model</span>
-                  </a>
-              </span>
-              <!-- Code Link. -->
-              <span class="link-block">
-                <a href="https://github.com/... (코드 링크)"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
+                <a href="https://github.com/AIDASLab/MMPB" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span>
                   <span>Code</span>
-                  </a>
+                </a>
               </span>
-              <!-- Demo Link. -->
               <span class="link-block">
-                <a href="https://huggingface.co/spaces/... (데모 링크)"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="far fa-images"></i>
-                  </span>
-                  <span>Demo</span>
-                  </a>
-              </span>
-              <!-- Dataset Link. -->
-              <span class="link-block">
-                <a href="https://huggingface.co/datasets/... (데이터셋 링크)"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-database"></i>
-                  </span>
+                <a href="https://huggingface.co/datasets/snu-aidas/MMPB" class="external-link button is-normal is-rounded is-dark">
+                  <span class="hf-icon">🤗</span>
                   <span>Dataset</span>
-                  </a>
+                </a>
               </span>
             </div>
+            <div style="margin-top:12px;" class="metric-badges">
+              <span class="badge">111 concepts</span>
+              <span class="badge">10k+ image–query pairs</span>
+              <span class="badge">15 tasks (3×5)</span>
+              <span class="badge">23 VLMs evaluated</span>
+            </div>
+            <div style="margin-top:12px;">
+              <span class="pill"><span class="icon-pill">⚡</span> <strong>First benchmark for VLM personalization — systematically reveals failure cases</strong></span>
+            </div>
           </div>
+
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- News -->
+<section class="hero whats-new">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+        <h2 class="title is-4 has-text-centered">🔥 What’s New</h2>
+        <div class="content has-text-centered">
+          <ul class="news-list">
+            <li class="is-hot">[2025.09.19] 🎉🎉 MMPB is accepted by NeurIPS 2025!</li>
+            <li>[2025.05.14] 🚀 Hugging Face dataset and evaluation code are available!</li>
+          </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- Teaser -->
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <!-- main image -->
-      <figure class="image">
-        <img src="./static/images/snu-night.jpg"
-             alt="subtitle of the main image">
+      <figure class="image has-text-centered">
+        <img src="static/images/mot.png" alt="Overview of MMPB and representative failures" />
       </figure>
       <h2 class="subtitle has-text-centered" style="margin-top: 20px;">
-        Subtitle of the Main Image
+        Examples of personalized queries across task types and representative failure cases of recent VLMs.
+        <br/>(a) Some closed-source models exhibit evasive responses. (b) Most VLMs fail to be personalized.
       </h2>
     </div>
   </div>
 </section>
 
-
-<!-- Paper abstract -->
-<section class="hero is-light ">
+<!-- Abstract -->
+<section class="hero is-light">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-full-width">
           <h2 class="title is-3">Abstract</h2>
           <div class="column has-text-justified" style="padding: 0;">
-            <p>
-              This is a brief description of the research paper. It summarizes the main contributions and findings of the work.
-              It highlights the key innovations and results that make this research significant.
-            </p>
-            <p>
-              The abstract is designed to give readers a quick overview of the research, allowing them to understand the main points without reading the entire paper.
-              It is often the first section that readers will see, so it should be concise and informative.
-            </p>
+            Visual personalization is essential for user-facing AI systems, from smart homes to healthcare, where models must adapt to human-centric concepts and individual preferences. Yet, despite their broad capabilities, recent Vision–Language Models (VLMs) remain underexplored in this regard.
+
+            We present MMPB, the first large-scale benchmark for VLM personalization, comprising 10k image–query pairs and 111 concepts across four categories (humans, animals, objects, characters). The human category further includes preference-grounded queries to test alignment with user-specific needs.
+
+            MMPB evaluates personalization across three key task types—Awareness, Appropriateness, and Coherency—under a three-stage protocol: concept injection, multi-turn dialogue, and personalized querying. Using 23 widely adopted VLMs (both open- and closed-source), we show that most models struggle: they under-personalize, fail to maintain consistency across dialogue, and rarely exploit visual cues effectively.
+
+            By surfacing these systematic limitations—from refusal behaviors to long-context forgetting—MMPB provides a scalable and rigorous foundation for advancing truly personalized multi-modal AI.
+
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Demo -->
-<section class="section">
+<!-- Key Takeaways -->
+<section class="section" id="takeaways">
   <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Demo</h2>
-        <p>
-          This section provides an interactive demo of the research. You can try out the model and see how it works in real-time.
-          The demo allows you to input data and observe the model's predictions or outputs.
-        </p>
-        <!-- HF Space Link -->
-        <gradio-app src="https://ever2after-test.hf.space"></gradio-app>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- Method -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Method</h2>
-        <div class="content has-text-justified">
-          <p>
-            This section provides a detailed explanation of the methodology used in the research.
-            It describes the techniques, algorithms, and approaches that were employed to achieve the results.
-          </p>
-          <p>
-            The method section is crucial for understanding how the research was conducted and how the findings were obtained.
-          </p>
-        </div>
-        <!-- Diagram or Illustration of Method -->
-        <figure class="image">
-          <img src="./static/images/snu-night.jpg" style="max-width:70%;margin-right:auto;margin: 50px auto 0 auto;"
-               alt="Diagram illustrating the method used in the research">
+    <h2 class="title is-3 has-text-centered">Key Takeaways</h2>
+    <div class="takeaway-grid">
+      <div class="takeaway">
+        <div class="kicker">1️⃣ Personalization Gap</div>
+        <p><strong>Preference following ≪ Recognition</strong>, High general VQA rank ≠ strong personalization.</p>
+        <figure class="takeaway-visual is-compact">
+          <img src="static/images/rec_pref.png" alt="Personalization gap across vision-language models" loading="lazy" />
         </figure>
-        <h3 class="has-text-centered" style="margin-top: 20px;">Caption of the Method Diagram</h3>
       </div>
-</section>
-
-<!-- Results -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Results</h2>
-        <div class="content has-text-justified">
-          <p>
-            This section provides a detailed explanation of the results obtained from the research.
-            It describes the key findings, insights, and contributions of the work.
-          </p>
-          <p>
-            The results section is essential for understanding the impact of the research and how it advances the field.
-            It often includes data, figures, and tables to illustrate the findings.
-          </p>
-          <!-- table example -->
-          <table class="table is-striped is-hoverable is-fullwidth has-text-centered">
-            <thead>
-              <tr>
-              <th rowspan="2">Baseline</th>
-              <th colspan="2">Classification</th>
-              <th colspan="2">Detection</th>
-              <th rowspan="2">Latency (ms/img)</th>
-              </tr>
-              <tr>
-              <th>Accuracy (%)</th>
-              <th>F1</th>
-              <th>mAP@50</th>
-              <th>mAP@50:95</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-              <th>ResNet50</th>
-              <td>92.1</td>
-              <td>0.89</td>
-              <td>54.3</td>
-              <td>34.2</td>
-              <td>12.4</td>
-              </tr>
-              <tr>
-              <th>ViT-B</th>
-              <td>94.7</td>
-              <td>0.92</td>
-              <td>58.9</td>
-              <td>38.1</td>
-              <td>18.7</td>
-              </tr>
-              <tr class="has-background-light">
-              <th>Ours</th>
-              <td><strong>96.3</strong></td>
-              <td><strong>0.94</strong></td>
-              <td><strong>63.5</strong></td>
-              <td><strong>42.7</strong></td>
-              <td>15.2</td>
-              </tr>
-            </tbody>
-            <tfoot>
-              <tr>
-              <td colspan="6" class="has-text-grey is-size-6">
-                Higher is better for Accuracy / F1 / mAP. Lower is better for latency.
-              </td>
-              </tr>
-            </tfoot>
-          </table>
-        </div>
+      <div class="takeaway">
+        <div class="kicker">2️⃣ Under-Personalization</div>
+        <p>Models favor saying <em>no</em> over affirming a valid personalized match, and degrade over long turns.</p>
+        <figure class="takeaway-visual">
+          <img src="static/images/bias.png" alt="Examples of biased refusals during personalization" loading="lazy" />
+        </figure>
       </div>
-</section>
-
-<!-- BibTeX -->
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>@misc{example2025,
-  author    = {Author1, Author2 and Author3, Author4 and Author5},
-  title     = {Paper Title},
-  journal   = {Journal Name},
-  year      = {2025},
-}</code></pre>
+      <div class="takeaway">
+        <div class="kicker">3️⃣ Visual Cues Underutilized</div>
+        <p><strong>Simple text beats multiple images</strong> for concept injection; visual cues are under-utilized by current VLMs.</p>
+        <figure class="takeaway-visual">
+          <img src="static/images/text_image.png" alt="Comparison between text-only and multi-image concept injection" loading="lazy" />
+        </figure>
+      </div>
+      <div class="takeaway">
+        <div class="kicker">4️⃣ Safety vs Utility</div>
+        <p>Closed models often <em>evade</em> human-centric queries; alignment policies can suppress personalization.</p>
+        <figure class="takeaway-visual">
+          <img src="static/images/refusal.png" alt="Refusal behavior comparison highlighting safety versus utility" loading="lazy" />
+        </figure>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- Footer (Don't change) -->
+<!-- Results (Interactive) -->
+<section class="section" id="results">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <h2 class="title is-3 has-text-centered">Results</h2>
+
+        <!-- Filter & Search Controls -->
+        <div class="filter-toolbar glass-card" style="display:flex; gap:8px; align-items:center; justify-content:space-between; padding:8px 10px; margin-bottom:8px;">
+          <div class="filter-controls" style="display:flex; gap:6px;">
+            <button class="button is-small is-link is-light filter-btn active" data-filter="all">All Models</button>
+            <button class="button is-small is-link is-light filter-btn" data-filter="open">Open Models</button>
+            <button class="button is-small is-link is-light filter-btn" data-filter="closed">Closed Models</button>
+          </div>
+          <label class="filter-search" style="display:flex; align-items:center; gap:6px;">
+            <span class="icon is-small"><i class="fas fa-search"></i></span>
+            <input type="text" class="input is-small search-box" placeholder="Search models..." aria-label="Search models" style="max-width:220px;" />
+          </label>
+        </div>
+
+        <!-- Table with scroll -->
+        <div class="table-card glass-card">
+          <div class="table-wrap">
+            <table class="table is-striped is-hoverable is-fullwidth data-table is-narrow">
+              <thead>
+                <tr class="group-header">
+                  <th rowspan="2" class="model-header">Model <button class="button is-xxs sort-btn" data-sort="name">↕</button></th>
+                  <th colspan="2" class="group-label">Text</th>
+                  <th colspan="2" class="group-label">Image</th>
+                </tr>
+                <tr>
+                  <th>Turn 0 <button class="button is-xxs sort-btn" data-sort="text0">↕</button></th>
+                  <th>Turn 10 <button class="button is-xxs sort-btn" data-sort="text10">↕</button></th>
+                  <th>Turn 0 <button class="button is-xxs sort-btn" data-sort="img0">↕</button></th>
+                  <th>Turn 10 <button class="button is-xxs sort-btn" data-sort="img10">↕</button></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-category="open"><td>Ovis2-34B</td><td>76.2</td><td>66.1</td><td>72.4</td><td>62.0</td></tr>
+                <tr data-category="open"><td>Qwen2-VL-72B</td><td>73.0</td><td>68.5</td><td>71.9</td><td>60.0</td></tr>
+                <tr data-category="open"><td>InternVL2.5-38B-MPO</td><td>72.2</td><td>63.7</td><td>66.3</td><td>46.4</td></tr>
+                <tr data-category="open"><td>Ovis2-16B</td><td>71.5</td><td>64.6</td><td>71.7</td><td>64.9</td></tr>
+                <tr data-category="open"><td>Qwen2.5-VL-72B</td><td>70.4</td><td>63.9</td><td>68.1</td><td>57.9</td></tr>
+                <tr data-category="closed"><td>Claude-3.5-Sonnet</td><td>68.8</td><td>54.3</td><td>40.4</td><td>41.6</td></tr>
+                <tr data-category="open"><td>DeepSeek-VL-V2</td><td>68.2</td><td>58.5</td><td>56.0</td><td>60.9</td></tr>
+                <tr data-category="open"><td>LLaVA-OV-72B</td><td>67.4</td><td>61.4</td><td>58.7</td><td>56.5</td></tr>
+                <tr data-category="open"><td>Qwen2-VL-7B</td><td>66.6</td><td>62.9</td><td>60.6</td><td>59.1</td></tr>
+                <tr data-category="closed"><td>Gemini-2.0-Flash</td><td>66.5</td><td>58.4</td><td>66.4</td><td>52.2</td></tr>
+                <tr data-category="closed"><td>Gemini-1.5-Flash</td><td>66.4</td><td>61.4</td><td>64.1</td><td>56.2</td></tr>
+                <tr data-category="closed"><td>GPT-4o</td><td>66.1</td><td>64.7</td><td>49.1</td><td>50.0</td></tr>
+                <tr data-category="open"><td>InternVL2.5-26B-MPO</td><td>65.0</td><td>58.1</td><td>58.3</td><td>53.3</td></tr>
+                <tr data-category="open"><td>Ovis2-8B</td><td>64.5</td><td>60.2</td><td>62.6</td><td>58.4</td></tr>
+                <tr data-category="open"><td>Qwen2.5-VL-7B</td><td>62.7</td><td>57.6</td><td>59.1</td><td>55.0</td></tr>
+                <tr data-category="open"><td>InternVL2.5-8B-MPO</td><td>60.6</td><td>56.3</td><td>61.4</td><td>55.2</td></tr>
+                <tr data-category="open"><td>Llama-3.2-11B</td><td>60.2</td><td>56.9</td><td>57.2</td><td>56.7</td></tr>
+                <tr data-category="open"><td>InternVL2.5-7B-MPO</td><td>60.0</td><td>47.2</td><td>51.6</td><td>40.9</td></tr>
+                <tr data-category="open"><td>LLaVA-NeXT-34B</td><td>57.8</td><td>52.4</td><td>59.4</td><td>52.9</td></tr>
+                <tr data-category="open"><td>LLaVA-NeXT-32B</td><td>57.5</td><td>58.6</td><td>54.9</td><td>55.4</td></tr>
+                <tr data-category="open"><td>LLaVA-OV-7B</td><td>56.8</td><td>52.7</td><td>49.8</td><td>49.1</td></tr>
+                <tr data-category="open"><td>LLaVA-1.5-13B</td><td>53.0</td><td>50.3</td><td>54.5</td><td>50.4</td></tr>
+                <tr data-category="closed"><td>Claude-3.7-Sonnet</td><td>37.0</td><td>33.6</td><td>15.8</td><td>14.6</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <p class="has-text-centered is-size-7 has-text-grey" style="margin-top:8px;">Higher is better for accuracy metrics. Numbers are from the MMPB benchmark.</p>
+
+        <!-- Inline JS for sorting/filter/search -->
+        <script>
+          (function() {
+            const section = document.getElementById('results');
+            const table = section.querySelector('.data-table');
+            const tbody = table.querySelector('tbody');
+            const rowsOriginal = Array.from(tbody.querySelectorAll('tr'));
+            const filterBtns = section.querySelectorAll('.filter-btn');
+            const searchBox = section.querySelector('.search-box');
+            const sortBtns = section.querySelectorAll('.sort-btn');
+
+            function applyFilterAndSearch() {
+              const activeBtn = section.querySelector('.filter-btn.active');
+              const filter = activeBtn ? activeBtn.getAttribute('data-filter') : 'all';
+              const term = (searchBox.value || '').trim().toLowerCase();
+              rowsOriginal.forEach(row => {
+                const category = row.getAttribute('data-category') || '';
+                const name = row.cells[0].textContent.trim().toLowerCase();
+                const matchFilter = (filter === 'all' || category.includes(filter));
+                const matchSearch = name.includes(term);
+                row.style.display = (matchFilter && matchSearch) ? '' : 'none';
+              });
+            }
+
+            filterBtns.forEach(btn => {
+              btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                applyFilterAndSearch();
+              });
+            });
+
+            searchBox.addEventListener('input', applyFilterAndSearch);
+
+            sortBtns.forEach(btn => {
+              btn.addEventListener('click', () => {
+                const sortType = btn.getAttribute('data-sort');
+                let dir = btn.getAttribute('data-sort-direction') || 'desc';
+                dir = (dir === 'asc') ? 'desc' : 'asc';
+                sortBtns.forEach(b => b.removeAttribute('data-sort-active'));
+                btn.setAttribute('data-sort-active', 'true');
+                btn.setAttribute('data-sort-direction', dir);
+                const visibleRows = Array.from(tbody.querySelectorAll('tr')).filter(r => r.style.display !== 'none');
+                let colIdx = 0;
+                if (sortType === 'name') colIdx = 0;
+                else if (sortType === 'text0') colIdx = 1;
+                else if (sortType === 'text10') colIdx = 2;
+                else if (sortType === 'img0') colIdx = 3;
+                else if (sortType === 'img10') colIdx = 4;
+                visibleRows.sort((a, b) => {
+                  if (sortType === 'name') {
+                    const av = a.cells[colIdx].textContent.trim().toLowerCase();
+                    const bv = b.cells[colIdx].textContent.trim().toLowerCase();
+                    return (dir === 'asc') ? av.localeCompare(bv) : bv.localeCompare(av);
+                  } else {
+                    const av = parseFloat(a.cells[colIdx].textContent) || -Infinity;
+                    const bv = parseFloat(b.cells[colIdx].textContent) || -Infinity;
+                    return (dir === 'asc') ? (av - bv) : (bv - av);
+                  }
+                });
+                const hiddenRows = Array.from(tbody.querySelectorAll('tr')).filter(r => r.style.display === 'none');
+                tbody.innerHTML = '';
+                visibleRows.forEach(r => tbody.appendChild(r));
+                hiddenRows.forEach(r => tbody.appendChild(r));
+              });
+            });
+            applyFilterAndSearch();
+          })();
+        </script>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
 <footer class="footer" style="padding-bottom: 40px;">
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-8">
         <div class="content">
           <p>
-            This website is adapted from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>, licensed under a <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
+            This website is adapted from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>, licensed under a
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
           </p>
         </div>
         <div class="content has-text-centered">
-          <a href="https://en.snu.ac.kr">
-            <img src="./static/images/snu_logo.png" alt="Logo" style="max-height: 48px; margin: 6px 10px;">
-          </a>
-          <a href="https://aidas.snu.ac.kr">
-            <img src="./static/images/aidaslab_logo.png" alt="Logo" style="max-height: 36px; margin: 10px 30px;">
-          </a>
+          <a href="https://en.snu.ac.kr"><img src="./static/images/snu_logo.png" alt="Logo" style="max-height: 48px; margin: 6px 10px;" /></a>
+          <a href="https://aidas.snu.ac.kr"><img src="./static/images/aidaslab_logo.png" alt="Logo" style="max-height: 36px; margin: 10px 30px;" /></a>
         </div>
       </div>
     </div>
   </div>
 </footer>
+
+<!-- Floating CTA -->
+<div class="floating-cta">
+  <a href="#top" class="button is-link is-light"><i class="fas fa-arrow-up"></i>&nbsp;Top</a>
+</div>
+
+<script>
+  // Dark mode toggle (simple class on html element for scoping)
+  const toggle = document.getElementById('darkToggle');
+  toggle?.addEventListener('click', () => {
+    document.documentElement.classList.toggle('dark');
+  });
+
+  // Fix Bulma burger
+  const burger = document.querySelector('.navbar-burger');
+  const menu = document.querySelector('.navbar-menu');
+  if (burger && menu) {
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('is-active');
+      menu.classList.toggle('is-active');
+    });
+  }
+</script>
 
 </body>
 </html>
