@@ -84,6 +84,16 @@
       font-weight: 700;
       background: rgba(255, 105, 0, .14);
     }
+    .tldr-card {
+      margin: 0 auto;
+      max-width: 820px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, .92) 0%, rgba(239, 244, 255, .92) 100%);
+      border: 1px solid rgba(11, 95, 255, .18);
+      border-radius: 18px;
+      padding: 22px 26px;
+      box-shadow: 0 18px 40px -28px rgba(11, 41, 110, .55);
+    }
+    .tldr-card strong { color: var(--brand); }
     .btn-xxs { font-size: 11px; line-height: 1; padding: 2px 6px; }
     .button .hf-icon { font-size: 16px; margin-right: 6px; }
     .author-block .arrow { color: navy; font-weight: 900; padding-right: 6px; }
@@ -234,8 +244,17 @@
     /* Sticky utilities */
     .floating-cta { position: fixed; right: 18px; bottom: 18px; z-index: 20; }
 
+    /* Footer */
+    .footer {
+      background: linear-gradient(180deg, #f8f9fd 0%, #f2f3f8 100%);
+      color: #1f2642;
+      border-top: 1px solid #e1e4f2;
+    }
+    .footer .content a { color: var(--brand); }
+
     /* Dark mode */
     .dark body, .dark .hero, .dark .section, .dark .footer { background: #0b0f19; color: #e6e7ee; }
+    .dark .footer { border-top-color: rgba(86, 104, 168, .55); }
     .dark .glass-card {
       background: rgba(18, 22, 34, .6);
       border-color: rgba(99, 102, 241, .35);
@@ -293,6 +312,12 @@
     .dark .news-list li.is-hot {
       background: rgba(255, 120, 66, .22);
       color: #ffbc8d;
+    }
+    .dark .tldr-card {
+      background: linear-gradient(135deg, rgba(19, 27, 48, .9) 0%, rgba(13, 20, 40, .9) 100%);
+      border-color: rgba(99, 102, 241, .38);
+      box-shadow: 0 18px 36px -28px rgba(0, 0, 0, .75);
+      color: #dee5ff;
     }
   </style>
 
@@ -381,11 +406,7 @@
               <span class="badge">15 tasks (3×5)</span>
               <span class="badge">23 VLMs evaluated</span>
             </div>
-            <div style="margin-top:12px;">
-              <span class="pill"><span class="icon-pill">⚡</span> <strong>First benchmark for VLM personalization — systematically reveals failure cases</strong></span>
-            </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -393,8 +414,8 @@
 </section>
 
 <!-- News -->
-<section class="hero whats-new">
-  <div class="hero-body">
+<section class="hero whats-new" style="padding: 2.0rem 1.5rem 1.5rem;">
+  <div class="hero-body" style="padding: 0.0rem 0 1rem;">
     <div class="container is-max-desktop">
         <h2 class="title is-4 has-text-centered">🔥 What’s New</h2>
         <div class="content has-text-centered">
@@ -403,6 +424,15 @@
             <li>[2025.05.14] 🚀 Hugging Face dataset and evaluation code are available!</li>
           </ul>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- TL;DR -->
+<section class="section" aria-label="TL;DR" style="padding-top: 1.5rem;">
+  <div class="container is-max-desktop">
+    <div class="tldr-card">
+      <p><strong>TL;DR</strong> We build the first benchmark focused on <em>personalized</em> VLM reasoning, spanning 10k image–query pairs and 111 concepts, and deliver a systematic analysis across 23 models that exposes how safety policies, dialogue drift, and weak visual grounding jointly block real personalization.</p>
     </div>
   </div>
 </section>
