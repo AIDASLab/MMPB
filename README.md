@@ -42,6 +42,20 @@ If any original author requests that an image be removed, please contact us at [
 
 ---
 
+## 📚 Citation
+
+If you find **MMPB** useful in your research, please cite our paper:
+
+```bibtex
+@inproceedings{
+  kim2025mmpb,
+  title={{MMPB}: It{\textquoteright}s Time for Multi-Modal Personalization},
+  author={Jaeik Kim and Woojin Kim and Woohyeon Park and Jaeyoung Do},
+  booktitle={The Thirty-ninth Annual Conference on Neural Information Processing Systems Datasets and Benchmarks Track},
+  year={2025},
+}
+```
+---
 
 ## 📧 Contact
 
