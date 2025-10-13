@@ -3,8 +3,8 @@
 [**🤗 Dataset**](https://huggingface.co/datasets/stackadd/MMPB)  
 🌐 [**Project Page**](https://aidaslab.github.io/MMPB/)
 
-This repo contains the official evaluation code and dataset for the paper  
-**"MMPB: It's Time for Multi-Modal Personalization" (NeurIPS 2025).**
+[Neurips 2025] This repo contains the official evaluation code and dataset for the paper  
+**"MMPB: It's Time for Multi-Modal Personalization"**.
 
 ---
 
