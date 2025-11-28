@@ -1138,16 +1138,13 @@ class MMPB(ImageBaseDataset):
     # }
     def __init__(self, dataset='MMBench', skip_noimg=True, **dataset_kwargs):
         self.dataset_name = dataset
-        self.data_path = "/workspace/MMPB/dataset6.csv"
-        # self.preference_path = "/workspace/MMPB/human/human_total_preference.json"
-        self.dataset_path = "/workspace/MMPB"
-        self.multi_turn_base_path = "/workspace/MMPB/multi_turn"
-        self.eval_prompting_path = "/workspace/MMPB/eval_prompt/eval_prompt.csv"
-        # with open(self.preference_path, "r", encoding="utf-8") as file:
-        #     self.total_preferences = json.load(file)
+        self.dataset_path = "/workspace/MMPB_dataset"
+        self.data_path = "/workspace/MMPB_dataset/dataset.csv"
+        self.multi_turn_base_path = "/workspace/MMPB_dataset/multi_turn"
+        self.eval_prompting_path = "/workspace/MMPB_dataset/eval_prompt/eval_prompt.csv"
 
         self.data = load(self.data_path)
-        # self.mt_data = load(self.multi_turn_path)   
+        self.mt_data = load(self.multi_turn_path)   
         self.model = dataset_kwargs.get("model", None)[0]
 
         self.injection_prompt_description_first = dataset_kwargs.get("injection_prompt_description_first", None)
@@ -1214,7 +1211,6 @@ class MMPB(ImageBaseDataset):
                     break
 
             self.mt_data = combined_convo[:n_required_utterances]
-            # print(self.mt_data)
         else:
             self.mt_data = [] 
         #####################################################
