@@ -22,6 +22,15 @@ This repo contains the official evaluation code and dataset for the paper
 
 ---
 
+## 🛠️ Data Preparation
+
+If you prefer the original CSV + image layout instead of the default Parquet release on 🤗, we provide helper scripts and raw archives:
+
+- Conversion scripts live under [`scripts/`](https://github.com/AIDASLab/MMPB/tree/main/scripts). They download `snu-aidas/MMPB`, materialize the folder hierarchy, and rebuild `dataset.csv` plus JSON metadata.
+- For direct downloads, grab the compressed packages from the [Hugging Face dataset page](https://huggingface.co/datasets/snu-aidas/MMPB/tree/main). Each archive contains the exact structure expected by the evaluation code—just extract and point `VLMEvalKit` to the resulting directory.
+
+---
+
 ## 👀 Introduction
 
 You can run the [VLMs](https://huggingface.co/spaces/opencompass/open_vlm_leaderboard) using the scripts in `VLMEvalKit/MMPB_script/`.  
@@ -60,4 +69,3 @@ If you find **MMPB** useful in your research, please cite our paper:
 ## 📧 Contact
 
 [jake630@snu.ac.kr](jake630@snu.ac.kr)
-
